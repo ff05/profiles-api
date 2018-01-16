@@ -10,7 +10,7 @@ app.post('/', (req, res) => {
   
 })
 
-app.patch('/', (req, res) => {
+app.patch('/:id', (req, res) => {
   
 })
 
