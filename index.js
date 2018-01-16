@@ -14,4 +14,8 @@ app.patch('/', (req, res) => {
   
 })
 
+app.delete('/:id', (req, res) => {
+  
+})
+
 app.listen()
