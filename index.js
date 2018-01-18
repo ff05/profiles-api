@@ -2,7 +2,9 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const { Profile } = require('./models/profile.js')
+const { Profile } = require('./models')
+
+const PORT = process.env.PORT || 3030
 
 app
 .use(cors())
@@ -15,7 +17,7 @@ app.get('/', (req, res) => {
     .catch((error) => next(error))
 })
 
-app.post('/', (req, res) => {
+app.post('/', (req, res, next) => {
   let newProfile = req.body
 
   Profile.create(newProfile)
@@ -52,4 +54,6 @@ app.delete('/:id', (req, res) => {
     .catch((error) => next(error))
 })
 
-app.listen()
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`)
+})
